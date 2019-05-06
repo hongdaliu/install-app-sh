@@ -5,8 +5,28 @@ app=""
 pid=1
 servers=""
 
-. ./apps/init.sh
-init
+help(){
+  echo "用法: sh [选项...] [FILE]...\n"
+  echo "-c,               执行命令(install, shutdown, restart)\n"
+  echo "-a,               操作应用(zookeeper, hdoop, hbase)\n"
+}
+
+init(){
+  isJavaInstall=`yum list installed | grep java`
+  if [ ${#isJavaInstall} == 0 ]
+  then
+    echo "installing java..."
+    yum install java
+    yum install java-1.8.0-openjdk-devel.x86_64
+  fi
+
+  isWgetInstall=`yum list installed | grep wget`
+  if [ ${#isWgetInstall} == 0 ]
+  then
+    echo "installing wget..."
+    yum install wget
+  fi
+}
 
 while getopts "c:a:" opt
 do
