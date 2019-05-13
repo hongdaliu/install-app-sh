@@ -75,8 +75,7 @@ then
   exit
 fi
 
-echo "begin ${command} ${app}..."
-. ./$app.sh
+. ./${app}.sh
 if [ ${command} == "install" ]
 then
   init
