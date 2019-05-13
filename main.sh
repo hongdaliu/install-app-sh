@@ -86,9 +86,7 @@ if [ ${command} == "update" ]
 then
   firewall
 fi
-sleep 3s
-source firewall.sh
-firewall
+
 echo "end!!"
 rm -rf zookeeper.sh
 rm -rf firewall.sh
