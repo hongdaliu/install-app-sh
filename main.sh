@@ -43,6 +43,7 @@ init(){
   fi
   #download sh files
   wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/zookeeper.sh
+  sleep 3s
   wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/firewall.sh 
 }
 
@@ -82,5 +83,5 @@ then
   firewall
 fi
 
-# rm -rf zookeeper.sh
-# rm -rf firewall.sh
+rm -rf zookeeper.sh
+rm -rf firewall.sh
