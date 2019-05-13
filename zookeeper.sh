@@ -11,6 +11,8 @@ install(){
     echo 'PATH=$PATH:$ZOOKEEPER_HOME/bin' >> ~/.bashrc
     source ~/.bashrc
     touch /opt/zookeeper-3.4.14/data/myid
+    rm -rf zookeeper-3.4.14.tar.gz
+    rm -rf zookeeper-3.4.14/zookeeper-docs/
   else
     echo "download zookeeper error!!!"
     exit
