@@ -91,7 +91,7 @@ then
   firewall
 fi
 sleep 3s
-rm -rf zookeeper.sh
-rm -rf firewall.sh
-rm -rf hadoop.sh
-rm -rf hbase.sh
+#rm -rf zookeeper.sh
+#rm -rf firewall.sh
+#rm -rf hadoop.sh
+#rm -rf hbase.sh
