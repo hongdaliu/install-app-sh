@@ -84,6 +84,7 @@ fi
 
 if [ ${command} == "update" ]
 then
+  . ./firewall.sh
   firewall
 fi
 
