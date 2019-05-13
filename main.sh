@@ -94,4 +94,4 @@ fi
 rm -rf zookeeper.sh
 rm -rf firewall.sh
 rm -rf hadoop.sh
-rm -rf hadoop.sh
+rm -rf hbase.sh
