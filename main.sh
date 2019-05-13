@@ -37,7 +37,7 @@ init(){
   if [ ${#isNtpInstall} == 0 ]
   then
     echo "installing npt..."
-    yum install -y npt
+    yum -y install ntp
     systemctl start ntpd
     systemctl enable ntpd
   fi
