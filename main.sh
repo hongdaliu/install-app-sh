@@ -91,6 +91,7 @@ then
   firewall
 fi
 sleep 3s
+echo "end!!"
 #rm -rf zookeeper.sh
 #rm -rf firewall.sh
 #rm -rf hadoop.sh
