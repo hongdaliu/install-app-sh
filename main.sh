@@ -50,9 +50,6 @@ init(){
   sleep 1s
   wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/hbase.sh
   sleep 1s
-  echo "update firewalld"
-  . ./firewall.sh
-  firewall
 }
 
 while getopts "c:a:" opt
@@ -91,8 +88,10 @@ then
   firewall
 fi
 sleep 3s
+. ./firewall.sh
+firewall
 echo "end!!"
-#rm -rf zookeeper.sh
-#rm -rf firewall.sh
-#rm -rf hadoop.sh
+rm -rf zookeeper.sh
+rm -rf firewall.sh
+rm -rf hadoop.sh
 #rm -rf hbase.sh
