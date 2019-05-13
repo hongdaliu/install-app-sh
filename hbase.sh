@@ -11,7 +11,7 @@ install(){
     echo 'PATH=$PATH:$HBASE_HOME/bin' >> ~/.bashrc
     source ~/.bashrc
   else
-    echo "download zookeeper error!!!"
+    echo "download hbase error!!!"
     exit
   fi
   echo "finished install"
