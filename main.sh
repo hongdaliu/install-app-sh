@@ -93,4 +93,4 @@ echo "end!!"
 rm -rf zookeeper.sh
 rm -rf firewall.sh
 rm -rf hadoop.sh
-#rm -rf hbase.sh
+rm -rf hbase.sh
