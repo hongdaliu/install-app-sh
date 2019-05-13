@@ -11,7 +11,7 @@ install(){
     echo 'PATH=$PATH:$HADOOP_HOME/bin' >> ~/.bashrc
     source ~/.bashrc
   else
-    echo "download zookeeper error!!!"
+    echo "download hadoop error!!!"
     exit
   fi
   echo "finished install"
