@@ -16,17 +16,23 @@ init(){
   if [ ${#isJavaInstall} == 0 ]
   then
     echo "installing java..."
-    yum install java
-    yum install java-1.8.0-openjdk-devel.x86_64
+    yum install -y java
+    yum install -y java-1.8.0-openjdk-devel.x86_64
   fi
 
   isWgetInstall=`yum list installed | grep wget`
   if [ ${#isWgetInstall} == 0 ]
   then
     echo "installing wget..."
-    yum install wget
+    yum install -y wget
   fi
-
+  
+  isNtpInstall=`yum list installed | grep npt`
+  if [ ${#isNtpInstall} == 0 ]
+  then
+    echo "installing npt..."
+    yum install -y npt
+  fi
   #download sh files
   wget 
 }
