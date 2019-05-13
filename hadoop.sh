@@ -1,6 +1,6 @@
 #!/bin/bash
 
-install(){
+install() {
   cd /opt
   wget http://mirrors.shu.edu.cn/apache/hadoop/common/hadoop-3.1.2/hadoop-3.1.2.tar.gz
   if [ -f hadoop-3.1.2.tar.gz ]
