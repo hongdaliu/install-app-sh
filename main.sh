@@ -75,7 +75,7 @@ then
   exit
 fi
 
-. ./${app}.sh
+source ${app}.sh
 if [ ${command} == "install" ]
 then
   init
@@ -87,7 +87,7 @@ then
   firewall
 fi
 sleep 3s
-. ./firewall.sh
+source firewall.sh
 firewall
 echo "end!!"
 rm -rf zookeeper.sh
