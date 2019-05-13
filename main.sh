@@ -44,7 +44,15 @@ init(){
   #download sh files
   wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/zookeeper.sh
   sleep 3s
-  wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/firewall.sh 
+  wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/firewall.sh
+  sleep 3s
+  wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/hadoop.sh
+  sleep 3s
+  wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/hbase.sh
+  sleep 3s
+  echo "update firewalld"
+  . ./firewall.sh
+  firewall
 }
 
 while getopts "c:a:" opt
@@ -85,3 +93,5 @@ fi
 
 rm -rf zookeeper.sh
 rm -rf firewall.sh
+rm -rf hadoop.sh
+rm -rf hadoop.sh
