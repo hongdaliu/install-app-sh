@@ -42,7 +42,8 @@ init(){
     systemctl enable ntpd
   fi
   #download sh files
-  wget 
+  wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/zookeeper.sh
+  wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/firewall.sh 
 }
 
 while getopts "c:a:" opt
@@ -80,3 +81,6 @@ if [ ${command} == "update" ]
 then
   firewall
 fi
+
+rm -rf zookeeper.sh
+rm -rf firewall.sh
