@@ -82,5 +82,5 @@ then
   firewall
 fi
 
-rm -rf zookeeper.sh
-rm -rf firewall.sh
+# rm -rf zookeeper.sh
+# rm -rf firewall.sh
