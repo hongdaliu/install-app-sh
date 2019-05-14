@@ -25,6 +25,12 @@ echo "-------------------------------------------------"
 wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh
 sleep 3s
 
+# install wget for all servers
+for server in ${servers[*]}
+do
+  ssh ${server} "yum install -y wget"
+done
+
 if [ ${command} == "init" ]
 then
   source ./servers.sh
