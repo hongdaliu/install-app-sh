@@ -37,9 +37,11 @@ fi
 
 if [ ${command} == "install" ]
 then
-  wget $option
+  wget "https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/"$option".sh"
+  sleep 3s
   source $option".sh"
   install
+  sleep 3s
   rm -rf $option".sh"
   echo "finished!!!"
 fi
