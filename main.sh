@@ -24,16 +24,16 @@ echo "| operate servers "$option"                     |"
 echo "-------------------------------------------------"
 wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh
 sleep 3s
-
+source ./servers.sh
 # install wget for all servers
 for server in ${servers[*]}
 do
+  echo "check wget..."
   ssh ${server} "yum install -y wget"
 done
 
 if [ ${command} == "init" ]
 then
-  source ./servers.sh
   for server in ${servers[*]}
   do
     echo ${server}
