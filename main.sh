@@ -25,18 +25,17 @@ echo "-------------------------------------------------"
 wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh
 sleep 3s
 source ./servers.sh
-# install wget for all servers
-for swget in ${servers[*]}
-do
-  echo "check wget..."
-  ssh ${swget} "yum install -y wget"
-done
 
 if [ ${command} == "init" ]
 then
+  source ./servers.sh
+  
   for server in ${servers[*]}
   do
     echo ${server}
+    echo "check wget..."
+    ssh ${server} "yum install -y wget"
+    echo "running script..."
     ssh ${server} 'wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/init.sh; sleep 3s; sh init.sh; sleep 5s; rm -rf servers.sh; rm -rf init.sh'
   done
   echo "finished!!!"
