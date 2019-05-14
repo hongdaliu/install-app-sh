@@ -13,6 +13,9 @@ install(){
     touch /opt/zookeeper-3.4.14/data/myid
     rm -rf zookeeper-3.4.14.tar.gz
     rm -rf zookeeper-3.4.14/zookeeper-docs/
+    
+    cd zookeeper-3.4.14/conf/
+    mv zoo_sample.cfg zoo.cfg
   else
     echo "download zookeeper error!!!"
     exit
