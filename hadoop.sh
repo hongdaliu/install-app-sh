@@ -9,6 +9,9 @@ install() {
     mkdir -p hadoop-3.1.2/data
     echo 'export HADOOP_HOME=/opt/hadoop-3.1.2' >> ~/.bashrc
     echo 'PATH=$PATH:$HADOOP_HOME/bin' >> ~/.bashrc
+    
+    rm -rf hadoop-3.1.2.tar.gz
+    rm -rf hadoop-3.1.2/share/doc
     source ~/.bashrc
   else
     echo "download hadoop error!!!"
