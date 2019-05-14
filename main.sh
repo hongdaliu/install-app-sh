@@ -51,4 +51,6 @@ then
   echo "finished!!!"
 fi
 
-rm -rf servers.sh
+sudo rm -rf servers.sh
+sudo rm -rf init.sh
+sudo rm -rf zookeeper.sh
