@@ -11,6 +11,7 @@ install(){
     echo 'PATH=$PATH:$HBASE_HOME/bin' >> ~/.bashrc
     
     rm -rf hbase-2.0.5-bin.tar.gz
+    rm -rf hbase-2.0.5/docs
     source ~/.bashrc
   else
     echo "download hbase error!!!"
