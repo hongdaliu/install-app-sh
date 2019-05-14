@@ -26,10 +26,10 @@ wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.s
 sleep 3s
 source ./servers.sh
 # install wget for all servers
-for server in ${servers[*]}
+for swget in ${servers[*]}
 do
   echo "check wget..."
-  ssh ${server} "yum install -y wget"
+  ssh ${swget} "yum install -y wget"
 done
 
 if [ ${command} == "init" ]
