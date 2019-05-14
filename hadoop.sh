@@ -8,11 +8,15 @@ install() {
     tar -xvf hadoop-3.1.2.tar.gz
     mkdir -p hadoop-3.1.2/data
     echo 'export HADOOP_HOME=/opt/hadoop-3.1.2' >> ~/.bashrc
-    echo 'PATH=$PATH:$HADOOP_HOME/bin' >> ~/.bashrc
+    echo 'PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin' >> ~/.bashrc
     
     echo 'export HDFS_DATANODE_USER=root' >> ~/.bashrc
     echo 'export HDFS_SECONDARYNAMENODE_USER=root' >> ~/.bashrc
     echo 'export HDFS_NAMENODE_USER=root' >> ~/.bashrc
+    
+    echo 'export YARN_RESOURCEMANAGER_USER=root' >> ~/.bashrc
+    echo 'export YARN_NODEMANAGER_USER=root' >> ~/.bashrc
+    echo 'export YARN_PROXYSERVER=root' >> ~/.bashrc
     
     rm -rf hadoop-3.1.2.tar.gz
     rm -rf hadoop-3.1.2/share/doc
