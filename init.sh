@@ -29,6 +29,8 @@ then
 fi
 
 # update firewall white list
+wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh
+sleep 3s
 source servers.sh
 for server in ${servers[*]}
 do
@@ -36,4 +38,6 @@ do
 done
 firewall-cmd --reload
 firewall-cmd --list-all
+
+rm -rf servers.sh
 echo "firewall reload success"
