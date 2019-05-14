@@ -27,6 +27,7 @@ sleep 3s
 
 if [ ${command} == "init" ]
 then
+  source servers.sh
   for server in ${servers[*]}
   do
     echo ${server}
