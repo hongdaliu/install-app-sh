@@ -20,6 +20,6 @@ install(){
     echo "download zookeeper error!!!"
     exit
   fi
-  source ~/.bashrc
   echo "finished install"
+  source ~/.bashrc
 }
