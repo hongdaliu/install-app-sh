@@ -24,7 +24,6 @@ echo "| operate servers "$option"                     |"
 echo "-------------------------------------------------"
 wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh
 sleep 3s
-source ./servers.sh
 
 if [ ${command} == "init" ]
 then
