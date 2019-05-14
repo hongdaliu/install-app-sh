@@ -1,5 +1,5 @@
 #!/bin/bash
-servers=("198.58.106.192" "72.14.191.98" "45.33.13.132" "45.33.14.182" "45.33.0.93" "45.79.23.242" "23.239.26.70")
+# servers=("198.58.106.192" "72.14.191.98" "45.33.13.132" "45.33.14.182" "45.33.0.93" "45.79.23.242" "23.239.26.70")
 command="init"
 option="single"
 while getopts "c:o:" opt
@@ -22,6 +22,8 @@ echo "-------------------------------------------------"
 echo "| begin exectue "$command"                      |"
 echo "| operate servers "$option"                     |"
 echo "-------------------------------------------------"
+wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh
+sleep 3s
 
 if [ ${command} == "init" ]
 then
@@ -41,3 +43,5 @@ then
   rm -rf $option".sh"
   echo "finished!!!"
 fi
+
+rm -rf servers.sh
