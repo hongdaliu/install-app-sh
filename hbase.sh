@@ -6,7 +6,7 @@ install(){
   if [ -f hbase-2.0.5-bin.tar.gz ]
   then
     tar xzvf hbase-2.0.5-bin.tar.gz
-    mkdir -p hbase-2.0.5-bin.tar.gz/data
+    mkdir -p hbase-2.0.5/data
     echo 'export HBASE_HOME=/opt/hbase-2.0.5' >> ~/.bashrc
     echo 'PATH=$PATH:$HBASE_HOME/bin' >> ~/.bashrc
     
