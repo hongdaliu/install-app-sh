@@ -27,11 +27,11 @@ sleep 3s
 
 if [ ${command} == "init" ]
 then
-  source servers.sh
+  source ./servers.sh
   for server in ${servers[*]}
   do
     echo ${server}
-    ssh ${server} 'wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/init.sh; sh init.sh; sleep 5s; rm -rf servers.sh; rm -rf init.sh'
+    ssh ${server} 'wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/init.sh; sleep 3s, sh init.sh; sleep 5s; rm -rf servers.sh; rm -rf init.sh'
   done
   echo "finished!!!"
 fi
@@ -40,7 +40,7 @@ if [ ${command} == "install" ]
 then
   wget "https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/"$option".sh"
   sleep 3s
-  source $option".sh"
+  source ./$option".sh"
   install
   sleep 3s
   rm -rf $option".sh"
