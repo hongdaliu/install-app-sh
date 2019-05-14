@@ -10,6 +10,10 @@ install() {
     echo 'export HADOOP_HOME=/opt/hadoop-3.1.2' >> ~/.bashrc
     echo 'PATH=$PATH:$HADOOP_HOME/bin' >> ~/.bashrc
     
+    echo 'export HDFS_DATANODE_USER=root' >> ~/.bashrc
+    echo 'export HDFS_SECONDARYNAMENODE_USER=root' >> ~/.bashrc
+    echo 'export HDFS_NAMENODE_USER=root' >> ~/.bashrc
+    
     rm -rf hadoop-3.1.2.tar.gz
     rm -rf hadoop-3.1.2/share/doc
     source ~/.bashrc
