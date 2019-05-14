@@ -13,9 +13,9 @@ install(){
     touch /opt/zookeeper-3.4.14/data/myid
     rm -rf zookeeper-3.4.14.tar.gz
     rm -rf zookeeper-3.4.14/zookeeper-docs/
-    
-    cd zookeeper-3.4.14/conf/
-    mv zoo_sample.cfg zoo.cfg
+
+    wget -P /opt/zookeeper-3.4.14/conf/ https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/zoo.cfg
+    # mv zoo_sample.cfg zoo.cfg
   else
     echo "download zookeeper error!!!"
     exit
