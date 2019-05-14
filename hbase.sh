@@ -9,6 +9,8 @@ install(){
     mkdir -p hbase-2.0.5-bin.tar.gz/data
     echo 'export HBASE_HOME=/opt/hbase-2.0.5' >> ~/.bashrc
     echo 'PATH=$PATH:$HBASE_HOME/bin' >> ~/.bashrc
+    
+    rm -rf hbase-2.0.5-bin.tar.gz
     source ~/.bashrc
   else
     echo "download hbase error!!!"
