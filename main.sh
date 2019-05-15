@@ -22,7 +22,7 @@ echo "-------------------------------------------------"
 echo "| begin exectue "$command"                      |"
 echo "| operate servers "$option"                     |"
 echo "-------------------------------------------------"
-wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh -O init.sh
+wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh -O servers.sh
 sleep 3s
 
 if [ ${command} == "init" ]
