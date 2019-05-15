@@ -35,7 +35,7 @@ then
     echo "check wget..."
     ssh ${server} "yum install -y wget"
     echo "running script..."
-    ssh ${server} 'curl https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/init.sh; sleep 3s; rm -rf servers.sh'
+    ssh ${server} 'curl https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/init.sh | bash; sleep 3s; rm -rf servers.sh'
     # ssh ${server} 'wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/init.sh; sleep 3s; sh init.sh; sleep 5s; rm -rf servers.sh; rm -rf init.sh'
   done
   echo "finished!!!"
