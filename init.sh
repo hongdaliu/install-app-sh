@@ -29,7 +29,7 @@ then
 fi
 
 # update firewall white list
-wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh
+wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh -O servers.sh
 sleep 3s
 source ./servers.sh
 for server in ${whiteServers[*]}
