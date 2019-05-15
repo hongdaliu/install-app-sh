@@ -21,6 +21,11 @@ install() {
     rm -rf hadoop-3.1.2.tar.gz
     rm -rf hadoop-3.1.2/share/doc
     source ~/.bashrc
+    
+    wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/server.properties -O /opt/khadoop-3.1.2/config/server.properties
+    wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/server.properties -O /opt/khadoop-3.1.2/config/server.properties
+    wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/server.properties -O /opt/khadoop-3.1.2/config/server.properties
+    wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/server.properties -O /opt/khadoop-3.1.2/config/server.properties
   else
     echo "download hadoop error!!!"
     exit
