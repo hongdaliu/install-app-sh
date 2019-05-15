@@ -51,7 +51,3 @@ then
   rm -rf $option".sh"
   echo "finished!!!"
 fi
-
-sudo rm -rf servers.sh
-sudo rm -rf init.sh
-sudo rm -rf zookeeper.sh
