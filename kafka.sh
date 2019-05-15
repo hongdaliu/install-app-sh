@@ -11,7 +11,7 @@ install(){
     echo 'PATH=$PATH:$KAFKA_HOME/bin' >> ~/.bashrc
 
     rm -rf kafka_2.12-2.2.0.tgz
-    wget -P /opt/kafka_2.12-2.2.0/config/ https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/server.properties -O server.properties
+    wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/server.properties -O /opt/kafka_2.12-2.2.0/config/server.properties
     # mv zoo_sample.cfg zoo.cfg
   else
     echo "download zookeeper error!!!"
@@ -20,5 +20,5 @@ install(){
   echo "finished install"
   source ~/.bashrc
 
-  bin/kafka-server-start.sh  -daemon config/server.properties
+  /opt/kafka_2.12-2.2.0/bin/kafka-server-start.sh  -daemon /opt/kafka_2.12-2.2.0/config/server.properties
 }
