@@ -22,7 +22,7 @@ echo "-------------------------------------------------"
 echo "| begin exectue "$command"                      |"
 echo "| operate servers "$option"                     |"
 echo "-------------------------------------------------"
-wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh
+wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh -O init.sh
 sleep 3s
 
 if [ ${command} == "init" ]
@@ -43,7 +43,7 @@ fi
 
 if [ ${command} == "install" ]
 then
-  wget "https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/"$option".sh"
+  wget "https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/"$option".sh" -O "$option".sh
   sleep 3s
   source ./$option".sh"
   install
