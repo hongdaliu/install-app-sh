@@ -28,6 +28,8 @@ then
   wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/ntp.conf -O /etc/ntp.conf
   systemctl start ntpd
   systemctl enable ntpd
+  
+  ntpstat
 fi
 
 # update firewall white list
