@@ -24,7 +24,7 @@
   
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://li1122-242.members.linode.com:9000</value>
+    <value>hdfs://localhost:9000</value>
   </property>
 
   <property>
