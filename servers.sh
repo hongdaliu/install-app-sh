@@ -1,4 +1,9 @@
 #!/bin/bash
 
-export servers=("198.58.106.192" "72.14.191.98" "45.33.13.132" "45.33.14.182" "45.33.0.93" "45.56.126.161" "23.239.26.70")
-export whiteServers=("222.174.185.118" "198.58.106.192" "72.14.191.98" "45.33.13.132" "45.33.14.182" "45.33.0.93" "45.56.126.161" "23.239.26.70")
+export zookeeperServer=("45.33.13.132" "72.14.191.98" "198.58.106.192")
+export datacenterServer=("45.56.126.161" "45.33.0.93" "45.33.14.182")
+export serviceServer=()
+export localComputer=("222.174.185.118")
+
+export allServers=(${zookeeperServer[*]} ${datacenterServer[*]} ${serviceServer[*]})
+export whiteListServers=(${zookeeperServer[*]} ${datacenterServer[*]} ${serviceServer[*]} ${localComputer[*]})
