@@ -20,7 +20,7 @@ install() {
     
     rm -rf hadoop-3.1.2.tar.gz
     rm -rf hadoop-3.1.2/share/doc
-    echo source ~/.bashrc
+    source ~/.bashrc
     
     wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/core-site.xml -O /opt/hadoop-3.1.2/etc/hadoop/core-site.xml
     wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/mapred-site.xml -O /opt/hadoop-3.1.2/etc/hadoop/mapred-site.xml
