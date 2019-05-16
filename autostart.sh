@@ -1,4 +1,6 @@
 #!/bin/bash
+# chkconfig: 2345 10 90 
+# description: myservice ....
 
 # start hadoop service
 start-dfs.sh
