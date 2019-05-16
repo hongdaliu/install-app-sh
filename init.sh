@@ -1,3 +1,5 @@
+yum remove ntp
+
 isJavaInstall=`yum list installed | grep java`
 if [ ${#isJavaInstall} == 0 ]
 then
@@ -24,6 +26,8 @@ if [ ${#isNtpInstall} == 0 ]
 then
   echo "installing npt..."
   yum -y install ntp
+  timedatectl set-timezone Asia/Shanghai
+  wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/ntp.conf -O /etc/ntp.conf
   systemctl start ntpd
   systemctl enable ntpd
 fi
