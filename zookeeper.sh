@@ -23,3 +23,7 @@ install(){
   echo "finished install"
   source ~/.bashrc
 }
+
+restart() {
+  zkServer.sh restart
+}
