@@ -71,7 +71,7 @@ then
     do
       if [ ${timer} == 0 ]
       then
-        ssh ${datacenter} 'stop-dfs.sh; stop-yarn.sh; sleep 3s; start-dfs.sh; start-yarn.sh; sleep 3s; stop-hbase.sh; sleep 3s; start-hbase.sh; sleep 3s; kafka-server-stop.sh; sleep 3s; kafka-server-start.sh -daemon /opt/kafka_2.12-2.2.0/config/server.properties; sleep 3s; kafka-manager -Dhttp.port=8080 -Dconfig.file=/opt/kafka-manager-2.0.0.2/conf/application.conf'
+        ssh ${datacenter} 'stop-dfs.sh; stop-yarn.sh; sleep 3s; start-dfs.sh; start-yarn.sh; sleep 3s; stop-hbase.sh; sleep 3s; start-hbase.sh; sleep 3s; kafka-server-stop.sh; sleep 3s; kafka-server-start.sh -daemon /opt/kafka_2.12-2.2.0/config/server.properties; sleep 3s; nohup kafka-manager -Dhttp.port=8080 -Dconfig.file=/opt/kafka-manager-2.0.0.2/conf/application.conf &'
       else
         ssh ${datacenter} 'kafka-server-stop.sh; sleep 3s; kafka-server-start.sh -daemon /opt/kafka_2.12-2.2.0/config/server.properties; sleep 3s; kafka-manager -Dhttp.port=8080 -Dconfig.file=/opt/kafka-manager-2.0.0.2/conf/application.conf'
         sleep 3s
