@@ -27,7 +27,7 @@
   </property>
   <property>
     <name>hbase.rootdir</name>
-    <value>hdfs://li1122-242.members.linode.com:9000/hbase</value>
+    <value>hdfs://li944-161.members.linode.com:9000/hbase</value>
   </property>
   <property>
     <name>hbase.unsafe.stream.capability.enforce</name>
