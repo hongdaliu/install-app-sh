@@ -36,9 +36,9 @@ fi
 wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh -O servers.sh
 sleep 3s
 source ./servers.sh
-for server in ${whiteServers[*]}
+for whiteServer in ${whiteListServers[*]}
 do
-  firewall-cmd --zone=public --add-rich-rule 'rule family="ipv4" source address="'${server}'" accept' --permanent
+  firewall-cmd --zone=public --add-rich-rule 'rule family="ipv4" source address="'${whiteServer}'" accept' --permanent
 done
 firewall-cmd --reload
 firewall-cmd --list-all
