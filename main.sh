@@ -51,3 +51,35 @@ then
   rm -rf $option".sh"
   echo "finished!!!"
 fi
+
+if [ ${command} == "restart" ]
+then
+  if [ ${option} == "zookeeper" ]
+  then
+    zookeepers=("45.33.13.132" "72.14.191.98" "198.58.106.192")
+    echo "restarting zookeepers..."
+    for zookeeper in ${zookeepers[*]}
+    do
+      ssh ${zookeeper} 'zkServer.sh restart'
+      sleep 3s
+    done
+  fi
+  
+  if [ ${option} == "datacenter" ]
+  then
+    timer=0
+    datacenters=("45.56.126.161" "45.33.0.93" "45.33.14.182")
+    echo "restarting zookeepers..."
+    for datacenters in ${datacenters[*]}
+    do
+      if [ ${timer} == 0 ]
+      then
+        ssh ${zookeeper} 'stop-dfs.sh; stop-yarn.sh; sleep 3s; start-dfs.sh; start-yarn.sh; sleep 3s; stop-hbase.sh; sleep 3s; start-hbase.sh; sleep 3s; kafka-server-stop.sh; sleep 3s; kafka-server-start.sh -daemon /opt/kafka_2.12-2.2.0/config/server.properties; sleep 3s; kafka-manager -Dhttp.port=8080 -Dconfig.file=/opt/kafka-manager-2.0.0.2/conf/application.conf'
+      else
+        ssh ${zookeeper} 'kafka-server-stop.sh; sleep 3s; kafka-server-start.sh -daemon /opt/kafka_2.12-2.2.0/config/server.properties; sleep 3s; kafka-manager -Dhttp.port=8080 -Dconfig.file=/opt/kafka-manager-2.0.0.2/conf/application.conf'
+        sleep 3s
+      fi
+    done
+  fi
+  echo "restart finished!!!"
+fi
