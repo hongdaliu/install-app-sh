@@ -1,5 +1,5 @@
 #!/bin/bash
-# servers=("198.58.106.192" "72.14.191.98" "45.33.13.132" "45.33.14.182" "45.33.0.93" "45.79.23.242" "23.239.26.70")
+
 command="init"
 option="single"
 while getopts "c:o:" opt
@@ -24,12 +24,11 @@ echo "| operate servers "$option"                     |"
 echo "-------------------------------------------------"
 wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/servers.sh -O servers.sh
 sleep 3s
+source ./servers.sh
 
 if [ ${command} == "init" ]
 then
-  source ./servers.sh
-  
-  for server in ${servers[*]}
+  for server in ${allServers[*]}
   do
     echo ${server}
     echo "check wget..."
@@ -56,9 +55,8 @@ if [ ${command} == "restart" ]
 then
   if [ ${option} == "zookeeper" ]
   then
-    zookeepers=("45.33.13.132" "72.14.191.98" "198.58.106.192")
     echo "restarting zookeepers..."
-    for zookeeper in ${zookeepers[*]}
+    for zookeeper in ${zookeeperServer[*]}
     do
       ssh ${zookeeper} 'zkServer.sh restart'
       sleep 3s
@@ -68,9 +66,8 @@ then
   if [ ${option} == "datacenter" ]
   then
     timer=0
-    datacenters=("45.56.126.161" "45.33.0.93" "45.33.14.182")
     echo "restarting zookeepers..."
-    for datacenter in ${datacenters[*]}
+    for datacenter in ${datacenterServer[*]}
     do
       if [ ${timer} == 0 ]
       then
