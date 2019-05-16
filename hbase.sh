@@ -14,6 +14,7 @@ install(){
     rm -rf hbase-2.0.5/docs
     source ~/.bashrc
     
+    wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/hbase-env.sh -O /opt/hbase-2.0.5/conf/hbase-env.sh
     wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/hbase-site.xml -O /opt/hbase-2.0.5/conf/hbase-site.xml
     wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/regionservers -O /opt/hbase-2.0.5/conf/regionservers
   else
