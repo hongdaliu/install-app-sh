@@ -66,7 +66,7 @@ then
   if [ ${option} == "datacenter" ]
   then
     timer=0
-    echo "restarting zookeepers..."
+    echo "restarting datacenter..."
     for datacenter in ${datacenterServer[*]}
     do
       if [ ${timer} == 0 ]
