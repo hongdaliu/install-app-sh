@@ -20,10 +20,10 @@ then
   echo "installing wget..."
   yum install -y wget
 fi
-isDocker=`yum list installed | grep docker`
-if [ ${#isWgetInstall} == 0 ]
+isDockerInstall=`yum list installed | grep docker`
+if [ ${#isDockerInstall} == 0 ]
 then
-  echo "installing wget..."
+  echo "installing docker..."
   yum install -y docker
 fi
 
