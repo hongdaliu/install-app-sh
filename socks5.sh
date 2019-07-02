@@ -25,14 +25,13 @@ if [ ${#isDockerInstall} == 0 ]
 then
   echo "installing docker..."
   yum install -y docker
+  sleep 5s
+  systemctl start docker.service
+  systemctl enable docker.service
+  docker pull redis
+  sleep 15s
+  echo "waiting 15 seconds..."
+
+  docker run --restart always --name redis -d -it -p 6379:6379 docker.io/redis
 fi
-
-sleep 5s
-systemctl start docker.service
-systemctl enable docker.service
-docker pull redis
-sleep 15s
-echo "waiting 15 seconds..."
-
-docker run --restart always --name redis -d -it -p 6379:6379 docker.io/redis
 netstat -plnet
