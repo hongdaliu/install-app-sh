@@ -35,3 +35,6 @@ then
   docker run --restart always --name redis -d -it -p 6379:6379 docker.io/redis
 fi
 netstat -plnet
+
+echo "setting max open files..."
+ulimit -n 65535
