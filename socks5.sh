@@ -1,3 +1,6 @@
+yum -y upgrade
+sleep 5s
+
 isJavaInstall=`yum list installed | grep java`
 if [ ${#isJavaInstall} == 0 ]
 then
@@ -23,3 +26,13 @@ then
   echo "installing wget..."
   yum install -y docker
 fi
+
+sleep 5s
+systemctl start docker.service
+systemctl enable docker.service
+docker pull redis
+sleep 15s
+echo "waiting 15 seconds..."
+
+docker run --restart always --name redis -d -it -p 6379:6379 docker.io/redis
+netstat -plnet
