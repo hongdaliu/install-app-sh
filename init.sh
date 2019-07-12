@@ -1,3 +1,4 @@
+yum -y upgrade
 isJavaInstall=`yum list installed | grep java`
 if [ ${#isJavaInstall} == 0 ]
 then
