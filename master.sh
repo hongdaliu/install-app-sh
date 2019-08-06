@@ -1,15 +1,10 @@
 #!/bin/bash
 
-# Disable firewalld
+# Init Setting
 systemctl stop firewalld
 systemctl disable firewalld
-
-# Init Setting
+# Close swap
 swapoff -a
-sysctl net.bridge.bridge-nf-call-iptables=1
-# Set SELinux in permissive mode (effectively disabling it)
-setenforce 0
-sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
 yes | yum update
 # Docker install
@@ -43,11 +38,16 @@ gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
+# Set SELinux in permissive mode (effectively disabling it)
+setenforce 0
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
 yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 systemctl enable --now kubelet
 systemctl daemon-reload
 systemctl restart kubelet
+
+sysctl net.bridge.bridge-nf-call-iptables=1
 
 kubeadm init --pod-network-cidr=10.244.0.0/16
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/62e44c867a2846fefb68bd5f178daf4da3095ccb/Documentation/kube-flannel.yml
