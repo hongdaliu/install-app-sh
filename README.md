@@ -7,6 +7,9 @@ curl https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/main.sh |
 
 ```
 curl https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/k8s-master.sh | bash /dev/stdin
+
+kubeadm join 198.58.125.128:6443 --token 8tzl31.3postkm6qapkhy0t \
+    --discovery-token-ca-cert-hash sha256:a510ae23fe62c0bca9058925fc0d7f32ee7dafe852c1716cbcfb326ade6fc9d0
 ```
 
 ```
