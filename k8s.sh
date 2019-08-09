@@ -1,5 +1,22 @@
 #!/bin/bash
 
+type="slave"
+while getopts "t:" opt
+do
+  case $opt in
+    t)
+      type=${OPTARG}
+      ;;
+    *)
+      echo "please input right command!"
+      exit
+      ;;
+  esac
+done
+echo "-------------------------------------------------"
+echo "| begin exectue "$type"                         |"
+echo "-------------------------------------------------"
+
 yes | yum update
 # Wget install
 yum install -y wget
@@ -68,14 +85,17 @@ docker
 yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 systemctl enable --now kubelet
 
-kubeadm init
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
+if [ ${type} == "master" ]
+then
+  kubeadm init
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-# Flannel
-kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/62e44c867a2846fefb68bd5f178daf4da3095ccb/Documentation/kube-flannel.yml
+  # Flannel
+  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/62e44c867a2846fefb68bd5f178daf4da3095ccb/Documentation/kube-flannel.yml
 
-kubectl get nodes
+  kubectl get nodes
+fi
 
 rm -rf $scriptPath
