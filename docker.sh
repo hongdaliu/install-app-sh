@@ -8,7 +8,12 @@ docker(){
   yum-config-manager \
     --add-repo \
     https://download.docker.com/linux/centos/docker-ce.repo
-  yum install -y docker-ce-18.06.2.ce docker-ce-cli
-  systemctl start docker
+  yum install -y docker-ce-18.06.2.ce
+
+  mkdir -p /etc/systemd/system/docker.service.d
+
+  # Restart Docker
+  systemctl daemon-reload
+  systemctl restart docker
   systemctl enable docker
 }
