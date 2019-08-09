@@ -6,6 +6,10 @@ curl https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/main.sh |
 ```
 
 ```
+curl https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/k8s-master.sh | bash /dev/stdin
+```
+
+```
 Socks5代理环境搭建执行命令
 
 curl https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/socks5.sh | bash /dev/stdin
