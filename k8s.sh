@@ -94,8 +94,13 @@ then
 
   # Flannel
   kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/62e44c867a2846fefb68bd5f178daf4da3095ccb/Documentation/kube-flannel.yml
-
-  kubectl get nodes
+  sleep 10s
+  # Dashboard
+  wget https://raw.githubusercontent.com/hongdaliu/install-app-sh/master/conf/dashboard.yaml -O "$scriptPath"/dashboard.yaml
+  kubectl apply -f "$scriptPath"/dashboard.yaml
+  kubectl create serviceaccount dashboard-admin -n kube-system
+  kubectl create clusterrolebinding dashboard-admin --clusterrole=cluster-admin --serviceaccount=kube-system:dashboard-admin
+  kubectl describe secrets -n kube-system $(kubectl -n kube-system get secret | awk '/dashboard-admin/{print $l}')
 fi
 
 rm -rf $scriptPath
