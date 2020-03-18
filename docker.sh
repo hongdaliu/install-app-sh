@@ -1,19 +1,20 @@
 #!/bin/bash
 
-# Docker install
-docker(){
-  yum install -y yum-utils \
-  device-mapper-persistent-data \
-  lvm2
-  yum-config-manager \
-    --add-repo \
-    https://download.docker.com/linux/centos/docker-ce.repo
-  yum install -y docker-ce-18.06.2.ce
+yum install -y yum-utils \
+device-mapper-persistent-data \
+lvm2
+yum-config-manager \
+  --add-repo \
+  https://download.docker.com/linux/centos/docker-ce.repo
+yum install -y docker-ce-18.06.2.ce
 
-  mkdir -p /etc/systemd/system/docker.service.d
+mkdir -p /etc/systemd/system/docker.service.d
 
-  # Restart Docker
-  systemctl daemon-reload
-  systemctl restart docker
-  systemctl enable docker
-}
+# Restart Docker
+systemctl daemon-reload
+systemctl restart docker
+systemctl enable docker
+
+# Install docker-compose
+curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
