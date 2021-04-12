@@ -6,7 +6,7 @@ lvm2
 yum-config-manager \
   --add-repo \
   https://download.docker.com/linux/centos/docker-ce.repo
-yum install -y docker-ce-18.06.2.ce
+yum install docker-ce docker-ce-cli containerd.io
 
 mkdir -p /etc/systemd/system/docker.service.d
 
